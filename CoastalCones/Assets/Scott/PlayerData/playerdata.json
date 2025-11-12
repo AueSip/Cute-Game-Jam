@@ -1,0 +1,14 @@
+{
+    "playerSaves":[
+            {
+                "experience":0,
+                "rating":0,
+                "money":0,
+                "bought_machines":[
+                    "cone",
+                    "vanilla"
+                ],
+                "currentday":0
+            }
+        ]
+    }
