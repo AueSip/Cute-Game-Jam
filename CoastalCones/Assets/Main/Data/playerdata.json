@@ -1,0 +1,12 @@
+[
+    {
+        "experience":0,
+        "rating":0,
+        "money":0,
+        "Bought_Machines":[
+            "cone",
+            "vanilla"
+        ],
+        "currentday":0
+    }
+]
