@@ -3,15 +3,15 @@
         {   "sauces_unlock":"cherry",
             "cone_unlock":"cone",
             "flavor_unlock":"vanilla",
-            "topping_unlock":"",
-            "beverage_unlock":""
+            "topping_unlock":"none",
+            "beverage_unlock":"none"
         }
     ],
     "one":[
         {      
             "sauces_unlock":"blueberry",
-            "cone_unlock":"",
-            "flavor_unlock":"",
+            "cone_unlock":"cone",
+            "flavor_unlock":"vanilla",
             "topping_unlock":"sprinkles",
             "beverage_unlock":"sprint" 
         }
@@ -19,7 +19,7 @@
     "two":[
         {      
             "sauces_unlock":"lime",
-             "cone_unlock":"",
+             "cone_unlock":"cone",
             "flavor_unlock":"chocolate",
             "topping_unlock":"flake",
             "beverage_unlock":"pok" 
@@ -28,8 +28,8 @@
      "three":[
         {      
             "sauces_unlock":"lemon",
-             "cone_unlock":"",
-             "flavor_unlock":"",
+             "cone_unlock":"cone",
+             "flavor_unlock":"strawberry",
             "topping_unlock":"jellies",
             "beverage_unlock":"mrsalt" 
         }
@@ -37,8 +37,8 @@
      "four":[
         {      
             "sauces_unlock":"chocolate",
-             "cone_unlock":"",
-             "flavor_unlock":"",
+             "cone_unlock":"cone",
+             "flavor_unlock":"bubblegum",
             "topping_unlock":"pinkdust",
             "beverage_unlock":"canta" 
         }
@@ -46,8 +46,8 @@
      "five":[
         {      
             "sauces_unlock":"caramel",
-            "flavor_unlock":"",
-             "cone_unlock":"",
+            "cone_unlock":"cone",
+            "flavor_unlock":"mint",
             "topping_unlock":"bluedust",
             "beverage_unlock":"milkshake" 
         }
