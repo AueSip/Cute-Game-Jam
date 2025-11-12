@@ -2,9 +2,10 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class S_PlayerController : MonoBehaviour
-{
+{   
     private Vector2 l;
 
+    public S_Interact interact;
     private  Vector3 lookRot;
     private GameObject player_camera;
     public float speed_of_camera = 0.5f;
@@ -56,11 +57,17 @@ public class S_PlayerController : MonoBehaviour
         // Apply rotation
         player_camera.transform.localRotation = Quaternion.Euler(lookRot.x, lookRot.y, 0f);
     }
-    
+
     public void OnLockCamera(InputValue value)
-    {   
+    {
         //toggles the lock
         SetCameraLock(!camera_lock);
     }
 
+    public void OnPickUp(InputValue value)
+    {
+        print("Interacted");
+
+        interact.CallInteract(player_camera);
+    }
 }
