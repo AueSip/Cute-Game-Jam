@@ -3,14 +3,14 @@
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
 .utmp/
-CollaborativePlatformer/[Ll]ibrary/*
-CollaborativePlatformer/[Tt]emp/*
-CollaborativePlatformer/[Oo]bj/*
-CollaborativePlatformer/[Bb]uild/*
-CollaborativePlatformer/[Bb]uilds/*
-CollaborativePlatformer/[Ll]ogs/*
-CollaborativePlatformer/[Uu]ser[Ss]ettings/*
-CollaborativePlatformer/Library/PackageCache/*
+CoastalCones/[Ll]ibrary/*
+CoastalCones/[Tt]emp/*
+CoastalCones/[Oo]bj/*
+CoastalCones/[Bb]uild/*
+CoastalCones/[Bb]uilds/*
+CoastalCones/[Ll]ogs/*
+CoastalCones/[Uu]ser[Ss]ettings/*
+CoastalCones/Library/PackageCache/*
 *.log
 
 # By default unity supports Blender asset imports, *.blend1 blender files do not need to be commited to version control.
@@ -19,10 +19,10 @@ CollaborativePlatformer/Library/PackageCache/*
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
-/CollaborativePlatformer/[Mm]emoryCaptures/
+/CoastalCones/[Mm]emoryCaptures/
 
 # Recordings can get excessive in size
-/CollaborativePlatformer/[Rr]ecordings/
+/CoastalCones/[Rr]ecordings/
 
 # Uncomment this line if you wish to ignore the asset store tools plugin
 # /[Aa]ssets/AssetStoreTools*
@@ -81,20 +81,20 @@ crashlytics-build.properties
 InitTestScene*.unity*
 
 # Addressables default ignores, before user customizations
-/CollaborativePlatformer/ServerData
-/CollaborativePlatformer/[Aa]ssets/StreamingAssets/aa*
-/CollaborativePlatformer/[Aa]ssets/AddressableAssetsData/link.xml*
-/CollaborativePlatformer/[Aa]ssets/Addressables_Temp*
+/CoastalCones/ServerData
+/CoastalCones/[Aa]ssets/StreamingAssets/aa*
+/CoastalCones/[Aa]ssets/AddressableAssetsData/link.xml*
+/CoastalCones/[Aa]ssets/Addressables_Temp*
 # By default, Addressables content builds will generate addressables_content_state.bin
 # files in platform-specific subfolders, for example:
 # /Assets/AddressableAssetsData/OSX/addressables_content_state.bin
-/CollaborativePlatformer/[Aa]ssets/AddressableAssetsData/*/*.bin*
+/CoastalCones/[Aa]ssets/AddressableAssetsData/*/*.bin*
 
 # Visual Scripting auto-generated files
-/CollaborativePlatformer/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Flow/UnitOptions.db
-/CollaborativePlatformer/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Flow/UnitOptions.db.meta
-/CollaborativePlatformer/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Core/Property Providers
-/CollaborativePlatformer/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Core/Property Providers.meta
+/CoastalCones/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Flow/UnitOptions.db
+/CoastalCones/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Flow/UnitOptions.db.meta
+/CoastalCones/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Core/Property Providers
+/CoastalCones/[Aa]ssets/Unity.VisualScripting.Generated/VisualScripting.Core/Property Providers.meta
 
 # Auto-generated scenes by play mode tests
-/CollaborativePlatformer/[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+/CoastalCones/[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
