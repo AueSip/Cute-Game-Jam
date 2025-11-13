@@ -19,17 +19,46 @@ public class IceCreams
         Sauce sauceVal,
         Beverage beverageVal)
     {
-        cones = new Cone[1];
-        flavors = new Flavor[1];
+        GenerateYourIceCream();
+        SetConeValue(indx,coneVal);
+        SetFlavorVal(indx,flavorVal);
+        SetToppingVal(indx,toppingsVal);
+        SetSauceVal(indx,sauceVal);
+        SetBeverageVal(indx,beverageVal);
+        return this;
+    }
+
+    public void GenerateYourIceCream()
+    {
+         cones = new Cone[1];
+         flavors = new Flavor[1];
         toppings = new Topping[1];
         sauces = new Sauce[1];
         beverages = new Beverage[1];
-        
-        cones[indx] = coneVal;
-        flavors[indx] = flavorVal;
-        toppings[indx] = toppingsVal;
-        sauces[indx] = sauceVal;
-        beverages[indx] = beverageVal;
-        return this;
+    }
+
+    public void SetConeValue(int index, Cone coneVal)
+    {
+        cones[index] = coneVal;
+    }
+
+    public void SetFlavorVal(int index, Flavor flavorVal)
+    {
+        flavors[index] = flavorVal;
+    }
+
+    public void SetToppingVal(int index, Topping toppingVal)
+    {
+        toppings[index] = toppingVal;
+    }
+
+     public void SetSauceVal(int index, Sauce sauceVal)
+    {
+        sauces[index] = sauceVal;
+    }
+
+    public void SetBeverageVal(int index, Beverage beverageVal)
+    {
+        beverages[index] = beverageVal;
     }
 }

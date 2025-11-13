@@ -216,8 +216,7 @@ public class S_IceCreamGenerator : MonoBehaviour
         IceCreams iceCream = new IceCreams();
         iceCream.SetIceCream(0,targetCone,targetFlavor, targetTopping, targetSauce, targetBeverage);
 
-        print("I GENERATED THIS NEW ICECRREAM" + " CONE: " + iceCream.cones[0].name  + " FLAVOR: " + iceCream.flavors[0].name + " TOP: " + iceCream.toppings[0].name  + " SAUCE: " +  iceCream.sauces[0].name + " BEVERAGE: " + iceCream.beverages[0].name);
-        print("This ice cream costs: " + (iceCream.cones[0].cost + iceCream.flavors[0].cost + iceCream.toppings[0].cost + iceCream.sauces[0].cost + iceCream.beverages[0].cost) + " Euros");
+      
         
         return iceCream;
     }

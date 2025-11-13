@@ -70,4 +70,86 @@ public class JSONReader : MonoBehaviour
     {
         return iceCreams.beverages;
     }
+
+    public Cone ReturnThisCone(string str)
+    {  
+        Cone targetCone = new();
+        foreach (Cone cone in this.ReturnCones())
+        {
+            if (cone.name == str)
+            {
+               targetCone = cone;
+               break;
+            }
+            
+        }
+        return targetCone;
+        
+    }
+
+     public Sauce ReturnThisSauce(string str)
+    {  
+        Sauce targetCone = new();
+        foreach (Sauce sauce in this.ReturnSauces())
+        {
+            if (sauce.name == str)
+            {
+               targetCone = sauce;
+               break;
+            }
+            
+        }
+        return targetCone;
+    }
+
+
+     public Topping ReturnThisTopping(string str)
+    {  
+        Topping targetCone = new();
+        foreach (Topping sauce in this.ReturnToppings())
+        {
+            if (sauce.name == str)
+            {
+               targetCone = sauce;
+               break;
+            }
+            
+        }
+        return targetCone;
+        
 }
+
+ public Flavor ReturnThisFlavor(string str)
+    {  
+        Flavor targetCone = new();
+        foreach (Flavor sauce in this.ReturnFlavor())
+        {
+            if (sauce.name == str)
+            {
+               targetCone = sauce;
+               break;
+            }
+            
+        }
+        return targetCone;
+        
+}
+
+public Beverage ReturnThisBeverage(string str)
+    {  
+        Beverage targetCone = new();
+        foreach (Beverage sauce in this.ReturnBeverages())
+        {
+            if (sauce.name == str)
+            {
+               targetCone = sauce;
+               break;
+            }
+            
+        }
+        return targetCone;
+        
+}
+}
+
+

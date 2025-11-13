@@ -8,6 +8,6 @@ public class Cone
     public string color;
 
     public int cost;
-
+    
 }
 
