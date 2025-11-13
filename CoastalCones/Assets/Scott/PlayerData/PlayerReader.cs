@@ -3,10 +3,10 @@ using UnityEngine;
 public class PlayerReader : MonoBehaviour
 {
     public TextAsset jsonFile;
-
+    PlayerSaves playerSaveData;
     void Start()
     {
-        PlayerSaves playerSaveData = JsonUtility.FromJson<PlayerSaves>(jsonFile.text);
+        playerSaveData = JsonUtility.FromJson<PlayerSaves>(jsonFile.text);
 
         foreach (PlayerSave data in playerSaveData.playerSaves)
         {
@@ -16,5 +16,10 @@ public class PlayerReader : MonoBehaviour
                 Debug.Log("Found PlayerUnlocks:" + info);
             }
         }
+
+    }
+    public PlayerSave ReturnPlayerSave()
+    {
+        return playerSaveData.playerSaves[0];
     }
 }

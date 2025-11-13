@@ -525,6 +525,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7204bb5cfbbb5a043ac85681f521af27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::S_DayCycle
+  DayLength: 25
+  dayRunning: 0
 --- !u!114 &1517100559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -537,9 +539,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18e0fe760e699c9449b2af3b5959a3d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  dayCycleSC: {fileID: 0}
-  jsonReader: {fileID: 0}
-  npc_timer: 30
+  dayCycleSC: {fileID: 1517100558}
+  playerReader: {fileID: 1517100561}
 --- !u!4 &1517100560
 Transform:
   m_ObjectHideFlags: 0
@@ -564,12 +565,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1517100557}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52a40186b85f7cc45ae8916db19e030d, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ea02b759b8ad034f9a8845ef2928ae2, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::JSONReader
-  JsonData: {fileID: 4900000, guid: 40b7c330329c91149b86d35f15bfd1ea, type: 3}
-  player:
-    playerSave: []
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerReader
+  jsonFile: {fileID: 4900000, guid: dcc8b71a2d623d842992af2c99b3a5af, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
