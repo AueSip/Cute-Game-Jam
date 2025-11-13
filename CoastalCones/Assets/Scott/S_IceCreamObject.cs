@@ -17,16 +17,15 @@ public class S_IceCreamObject : MonoBehaviour
     void Start()
     {   
         iceCream.GenerateYourIceCream();
-        UpdateConeMesh(listOfItems.ReturnThisCone("cone"));
+    
         
-        //Debug Creation
-        /*
+        
         UpdateConeMesh(listOfItems.ReturnThisCone("cone"));
         UpdateIceCreamMesh(listOfItems.ReturnThisFlavor("chocolate"));
         UpdateToppingMesh(listOfItems.ReturnThisTopping("bluedust"));
         UpdateSauceMesh(listOfItems.ReturnThisSauce("lime"));
         UpdateBeverageMesh(listOfItems.ReturnThisBeverage("pok"));
-        */
+        
     }
 
     // Update is called once per frame
@@ -35,7 +34,7 @@ public class S_IceCreamObject : MonoBehaviour
         
     }
 
-    void UpdateConeMesh(Cone chosenCone)
+    public void UpdateConeMesh(Cone chosenCone)
     {   
         iceCream.SetConeValue(0, chosenCone);
         if (iceCream.cones[0].name != null)
@@ -45,7 +44,7 @@ public class S_IceCreamObject : MonoBehaviour
         }
     }
 
-    void UpdateIceCreamMesh(Flavor chosenFlavor)
+    public void UpdateIceCreamMesh(Flavor chosenFlavor)
     {   
         iceCream.SetFlavorVal(0, chosenFlavor);
         if (iceCream.flavors[0].name != null)
@@ -56,7 +55,7 @@ public class S_IceCreamObject : MonoBehaviour
         
     }
 
-     void UpdateToppingMesh(Topping chosenTopping)
+     public void UpdateToppingMesh(Topping chosenTopping)
     {   
         iceCream.SetToppingVal(0, chosenTopping);
         if (iceCream.toppings[0].name != null)
@@ -66,7 +65,7 @@ public class S_IceCreamObject : MonoBehaviour
         }
     }
 
-     void UpdateSauceMesh(Sauce chosenSauce)
+    public void UpdateSauceMesh(Sauce chosenSauce)
     {   
         iceCream.SetSauceVal(0, chosenSauce);
         if (iceCream.sauces[0].name != null)
@@ -76,7 +75,7 @@ public class S_IceCreamObject : MonoBehaviour
         }
     }
 
-     void UpdateBeverageMesh(Beverage chosenBeverage)
+     public void UpdateBeverageMesh(Beverage chosenBeverage)
     {   
         iceCream.SetBeverageVal(0, chosenBeverage);
         if (iceCream.beverages[0].name != null)
