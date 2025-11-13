@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 {
     public S_DayCycle dayCycleSC;
     public PlayerReader playerReader;
+    public SaveData saveData;
+
     int money;
     int experience;
     int rating;
@@ -15,8 +17,6 @@ public class GameManager : MonoBehaviour
     public float npc_timer;
     public float npc_timerMax;
     public float npc_timerMin;
-
-
     List<string> bought_machines;
 
 
@@ -24,6 +24,9 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         SetValue();
+
+        dayCycleSC.gm = this;
+
         GameLoop();
     }
 
@@ -40,8 +43,14 @@ public class GameManager : MonoBehaviour
         dayCycleSC.Startday();
     }
 
-    public void DoEndDay(){
-        
+    public void DoEndDay()
+    {
+        saveData.playerSave.experience = experience;
+        saveData.playerSave.rating = rating;
+        saveData.playerSave.money = money;
+        saveData.playerSave.currentDay = currentDay + 1; // day advance
+        saveData.playerSave.bought_machines = bought_machines;
+        saveData.SaveToJson();
     }
 
     public void SpawnNPCS()
@@ -49,9 +58,13 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void GetIceCreamGenerator()
+    {
+        
+    }
+
     public void SetValue()
     {
-
         experience = playerReader.ReturnPlayerSave().experience;
         print(experience);
 
