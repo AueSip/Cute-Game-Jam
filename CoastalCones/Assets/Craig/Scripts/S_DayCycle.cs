@@ -9,6 +9,8 @@ public class S_DayCycle : MonoBehaviour
     private float CurrentTime = 0f;
     public bool dayRunning = false;
 
+    private GameManager gm;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -21,6 +23,7 @@ public class S_DayCycle : MonoBehaviour
         if (dayRunning)
         {
             CurrentTime += Time.deltaTime;
+            //print(CurrentTime);
             if (CurrentTime >= DayLength)
             {
                 EndDay();
