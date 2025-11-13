@@ -3,12 +3,12 @@ using UnityEngine;
 public class MachineUnlockReader : MonoBehaviour
 {
     public TextAsset jsonFile;
-
+    MachineUnlocks machineUnlockData;
     void Start()
     {
-        MachineUnlocks machineUnlockData = JsonUtility.FromJson<MachineUnlocks>(jsonFile.text);
+        machineUnlockData = JsonUtility.FromJson<MachineUnlocks>(jsonFile.text);
 
-        foreach (Zero data in machineUnlockData.zero)
+       /* foreach (Zero data in machineUnlockData.zero)
         {
             Debug.Log("Found Unlock: " + data.sauces_unlock + " " + data.cone_unlock + " " + data.flavor_unlock + " " + data.topping_unlock + " " + data.beverage_unlock);
 
@@ -42,12 +42,44 @@ public class MachineUnlockReader : MonoBehaviour
 
 
         }
-        
+
         foreach (Five data in machineUnlockData.five)
         {
             Debug.Log("Found Unlock: " + data.sauces_unlock + " " + data.cone_unlock + " " + data.flavor_unlock + " " + data.topping_unlock + " " + data.beverage_unlock);
-            
-            
-        }
+
+
+        }*/
+
     }
+
+    public Zero[] ReturnZeroLevel()
+    {
+        return machineUnlockData.zero;
+    }
+
+    public One[] ReturnOneLevel()
+    {
+        return machineUnlockData.one;
+    }
+
+    public Two[] ReturnTwoLevel()
+    {
+        return machineUnlockData.two;
+    }
+
+    public Three[] ReturnThreeLevel()
+    {
+        return machineUnlockData.three;
+    }
+
+    public Four[] ReturnFourLevel()
+    {
+        return machineUnlockData.four;
+    }
+
+    public Five[] ReturnFiveLevel()
+    {
+        return machineUnlockData.five;
+    }
+    
 }

@@ -506,6 +506,7 @@ GameObject:
   - component: {fileID: 1517100559}
   - component: {fileID: 1517100558}
   - component: {fileID: 1517100561}
+  - component: {fileID: 1517100562}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -527,6 +528,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::S_DayCycle
   DayLength: 25
   dayRunning: 0
+  gm: {fileID: 0}
 --- !u!114 &1517100559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -541,6 +543,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   dayCycleSC: {fileID: 1517100558}
   playerReader: {fileID: 1517100561}
+  saveData: {fileID: 1517100562}
+  npc_timer: 0
+  npc_timerMax: 0
+  npc_timerMin: 0
 --- !u!4 &1517100560
 Transform:
   m_ObjectHideFlags: 0
@@ -569,6 +575,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerReader
   jsonFile: {fileID: 4900000, guid: dcc8b71a2d623d842992af2c99b3a5af, type: 3}
+--- !u!114 &1517100562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1517100557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08c9cf94982384e408589036c7bdf8de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SaveData
+  playerSave:
+    experience: 0
+    rating: 0
+    money: 0
+    bought_machines: []
+    currentDay: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

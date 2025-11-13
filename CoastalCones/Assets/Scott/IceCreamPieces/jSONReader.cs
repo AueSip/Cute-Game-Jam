@@ -4,9 +4,11 @@ public class JSONReader : MonoBehaviour
 {
     public TextAsset jsonFile;
 
+    IceCreams iceCreams;
+
     void Start()
     {
-        IceCreams iceCreams = JsonUtility.FromJson<IceCreams>(jsonFile.text);
+        iceCreams = JsonUtility.FromJson<IceCreams>(jsonFile.text);
 
         foreach (Cone cone in iceCreams.cones)
         {
@@ -35,12 +37,37 @@ public class JSONReader : MonoBehaviour
 
 
         }
-        
-          foreach (Beverage beverage in iceCreams.beverages)
+
+        foreach (Beverage beverage in iceCreams.beverages)
         {
             Debug.Log("Found beverage: " + beverage.name + " " + beverage.color + " " + beverage.cost + " " + beverage.value);
 
-            
+
         }
+    }
+
+    public Cone[] ReturnCones()
+    {
+        return iceCreams.cones;
+    }
+
+    public Sauce[] ReturnSauces()
+    {
+        return iceCreams.sauces;
+    }
+
+    public Flavor[] ReturnFlavor()
+    {
+        return iceCreams.flavors;
+    }
+
+    public Topping[] ReturnToppings()
+    {
+        return iceCreams.toppings;
+    }
+    
+    public Beverage[] ReturnBeverages()
+    {
+        return iceCreams.beverages;
     }
 }
