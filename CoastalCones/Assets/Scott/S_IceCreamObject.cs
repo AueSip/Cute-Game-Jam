@@ -18,11 +18,15 @@ public class S_IceCreamObject : MonoBehaviour
     {   
         iceCream.GenerateYourIceCream();
         UpdateConeMesh(listOfItems.ReturnThisCone("cone"));
+        
+        //Debug Creation
+        /*
+        UpdateConeMesh(listOfItems.ReturnThisCone("cone"));
         UpdateIceCreamMesh(listOfItems.ReturnThisFlavor("chocolate"));
         UpdateToppingMesh(listOfItems.ReturnThisTopping("bluedust"));
         UpdateSauceMesh(listOfItems.ReturnThisSauce("lime"));
         UpdateBeverageMesh(listOfItems.ReturnThisBeverage("pok"));
-        
+        */
     }
 
     // Update is called once per frame
@@ -89,6 +93,7 @@ public class S_IceCreamObject : MonoBehaviour
         Color MyColour = Color.clear;
         ColorUtility.TryParseHtmlString (color, out MyColour);
         mesh.GetComponent<Renderer>().material.SetColor("_BaseColor", MyColour);
+        
     }
 
     void UpdateRenderObject(GameObject obj, bool value)
