@@ -65,7 +65,7 @@ public class S_Interact : MonoBehaviour
             if (!Overlaps.Contains(interactable))
             {
                 Overlaps.Add(interactable);
-                print("object");
+
 
             }
         }
@@ -76,7 +76,7 @@ public class S_Interact : MonoBehaviour
             if (!Placements.Contains(place))
             {
                 Placements.Add(place);
-                print("PLACE");
+
             }
         }
 

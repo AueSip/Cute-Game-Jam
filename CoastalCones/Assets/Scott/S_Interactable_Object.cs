@@ -19,7 +19,7 @@ public class S_Interactable_Object : S_Interactable_Base
     {   
         originalLocation = this.transform;
         SetObjectPlaceTarget(originalLocation);
-        print("SET ORIGINAL LOCATIONS");
+       
     }
 
     public override void Interacted(GameObject player, S_Interact interactComps)
