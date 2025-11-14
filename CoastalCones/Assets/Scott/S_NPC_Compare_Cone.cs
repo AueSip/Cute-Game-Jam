@@ -6,31 +6,39 @@ using UnityEngine;
 public class S_NPC_Compare_Cone : S_Placement_Pos
 {
 
-    private S_NPC npc;
+    public S_NPC npc;
+
+    
     private GameManager gameManager;
 
-    private IceCream iceCream;
+    private IceCreams iceCream;
 
     void Start()
     {
-        gameManager = GameObject.Find("GameManager").GetComponent<gameManager>;
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        iceCream = npc.GetIceCream();
     }
     public override void OnMinigameComplete()
     {   
         base.OnMinigameComplete();
-        iceCream = gameManager.npcSpawnManagement.GetFirstNPCIceCream();
-
-        if (iceCream == GetCodeObject().ReturnIceCream())
+        if (GetPlayerIceCream() != null)
         {
-            
-        }
-        else
-        {
-            
-        }
+            iceCream = gameManager.npcSpawnManagement.GetFirstNPCIceCream();
 
-        Destroy(GetPlayerIceCream());
+            if (iceCream == GetCodeObject().ReturnIceCream())
+            {
+                print("Correct IceCream");
+            }
+            else
+            {
+                print("WRONG ICECREAM");
+            }
+            
+            Destroy(GetPlayerIceCream());
+            gameManager.npcSpawnManagement.NPCServed();
 
+        }
+       
         
     }
 

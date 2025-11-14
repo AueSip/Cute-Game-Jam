@@ -1,5 +1,50 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1534268787410799615
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3547573799894189532}
+  - component: {fileID: 9128439470781206412}
+  m_Layer: 0
+  m_Name: JSONReader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3547573799894189532
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1534268787410799615}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.02871, y: 0.64638, z: -0.47723}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1799336796604321369}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9128439470781206412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1534268787410799615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9600a50d485101042b66013d3d218ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JSONReader
+  jsonFile: {fileID: 4900000, guid: 94eda97c4831f65408162a04a679cfbb, type: 3}
 --- !u!1 &3876741250912729463
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,6 +262,7 @@ Transform:
   - {fileID: 2483667833231751604}
   - {fileID: 8986785453198264092}
   - {fileID: 8780795374114431148}
+  - {fileID: 3547573799894189532}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3490197492578407025
@@ -290,7 +336,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -310,7 +356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cecab62f6e254f94fb18d24f310e8b18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::S_IceCreamObject
-  listOfItems: {fileID: 0}
+  listOfItems: {fileID: 9128439470781206412}
   iceCream:
     cones: []
     flavors: []
@@ -357,7 +403,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0

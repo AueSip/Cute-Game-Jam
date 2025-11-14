@@ -10,7 +10,7 @@ public class JSONReader : MonoBehaviour
     {
         iceCreams = JsonUtility.FromJson<IceCreams>(jsonFile.text);
 
-        foreach (Cone cone in iceCreams.cones)
+        /*foreach (Cone cone in iceCreams.cones)
         {
             Debug.Log("Found cone: " + cone.name + " " + cone.color + " " + cone.cost + " " + cone.value);
 
@@ -43,7 +43,7 @@ public class JSONReader : MonoBehaviour
             Debug.Log("Found beverage: " + beverage.name + " " + beverage.color + " " + beverage.cost + " " + beverage.value);
 
 
-        }
+        }*/
     }
 
     public Cone[] ReturnCones()

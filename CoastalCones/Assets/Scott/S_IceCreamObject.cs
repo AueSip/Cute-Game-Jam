@@ -4,7 +4,9 @@ using UnityEngine;
 public class S_IceCreamObject : MonoBehaviour
 {   
 
-    public JSONReader listOfItems;
+    private JSONReader listOfItems;
+
+    private GameManager gameManager;
     public IceCreams iceCream = new();
     public GameObject coneObject;
      public GameObject iceCreamObject;
@@ -15,9 +17,9 @@ public class S_IceCreamObject : MonoBehaviour
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
-    {   
-        iceCream.GenerateYourIceCream();
-         UpdateConeMesh(listOfItems.ReturnThisCone("cone"));
+    {       
+
+        
         
         /*
        
@@ -26,6 +28,13 @@ public class S_IceCreamObject : MonoBehaviour
         UpdateSauceMesh(listOfItems.ReturnThisSauce("lime"));
         UpdateBeverageMesh(listOfItems.ReturnThisBeverage("pok"));
         */
+    }
+
+    public void Init(GameManager gm)
+    {
+       gameManager = gm;
+       iceCream.GenerateYourIceCream();
+        UpdateConeMesh(gm.GetComponent<JSONReader>().ReturnThisCone("cone"));
     }
 
     // Update is called once per frame

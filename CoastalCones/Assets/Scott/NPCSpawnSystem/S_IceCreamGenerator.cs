@@ -6,6 +6,7 @@ public class S_IceCreamGenerator : MonoBehaviour
 
     private MachineUnlockReader unlockReader;
 
+    private GameManager gameManager;
 
     List<string> cone_names = new();
     List<string> sauce_names = new();
@@ -21,8 +22,9 @@ public class S_IceCreamGenerator : MonoBehaviour
         
     }
 
-    public void Init()
-    {
+    public void Init(GameManager gm)
+    {   
+        gameManager = gm;
         jsonReader = GameObject.Find("GameManager").GetComponent<JSONReader>();
         unlockReader = GameObject.Find("GameManager").GetComponent<MachineUnlockReader>();
         GetUnlocks();
@@ -39,66 +41,88 @@ public class S_IceCreamGenerator : MonoBehaviour
     }
 
     public void GetUnlocks()
-    {
+    {   
         cone_names.Clear();
         sauce_names.Clear();
         flavor_names.Clear();
         topping_names.Clear();
         beverage_names.Clear();
         //Returns array of unlocks, add a check later for level
-        Zero[] level0 = unlockReader.ReturnZeroLevel();
-        foreach (Zero data in level0)
+        int tempXPRead = gameManager.GetExperience();
+
+        if (tempXPRead >= 0)
         {
-            cone_names.Add(data.cone_unlock);
-            sauce_names.Add(data.sauces_unlock);
-            flavor_names.Add(data.flavor_unlock);
-            topping_names.Add(data.topping_unlock);
-            beverage_names.Add(data.beverage_unlock);
+            Zero[] level0 = unlockReader.ReturnZeroLevel();
+
+
+            foreach (Zero data in level0)
+            {
+                cone_names.Add(data.cone_unlock);
+                sauce_names.Add(data.sauces_unlock);
+                flavor_names.Add(data.flavor_unlock);
+                topping_names.Add(data.topping_unlock);
+                beverage_names.Add(data.beverage_unlock);
+            }
         }
-        One[] level1 = unlockReader.ReturnOneLevel();
-        foreach (One data in level1)
+         if (tempXPRead >= 1000)
         {
-            cone_names.Add(data.cone_unlock);
-            sauce_names.Add(data.sauces_unlock);
-            flavor_names.Add(data.flavor_unlock);
-            topping_names.Add(data.topping_unlock);
-            beverage_names.Add(data.beverage_unlock);
+            One[] level1 = unlockReader.ReturnOneLevel();
+            foreach (One data in level1)
+            {
+                cone_names.Add(data.cone_unlock);
+                sauce_names.Add(data.sauces_unlock);
+                flavor_names.Add(data.flavor_unlock);
+                topping_names.Add(data.topping_unlock);
+                beverage_names.Add(data.beverage_unlock);
+            }
         }
-        Two[] level2 = unlockReader.ReturnTwoLevel();
-        foreach (Two data in level2)
+         if (tempXPRead >= 2000)
         {
-            cone_names.Add(data.cone_unlock);
-            sauce_names.Add(data.sauces_unlock);
-            flavor_names.Add(data.flavor_unlock);
-            topping_names.Add(data.topping_unlock);
-            beverage_names.Add(data.beverage_unlock);
+            Two[] level2 = unlockReader.ReturnTwoLevel();
+            foreach (Two data in level2)
+            {
+                cone_names.Add(data.cone_unlock);
+                sauce_names.Add(data.sauces_unlock);
+                flavor_names.Add(data.flavor_unlock);
+                topping_names.Add(data.topping_unlock);
+                beverage_names.Add(data.beverage_unlock);
+            }
         }
-        Three[] level3 = unlockReader.ReturnThreeLevel();
-        foreach (Three data in level3)
+          if (tempXPRead >= 3000)
         {
-            cone_names.Add(data.cone_unlock);
-            sauce_names.Add(data.sauces_unlock);
-            flavor_names.Add(data.flavor_unlock);
-            topping_names.Add(data.topping_unlock);
-            beverage_names.Add(data.beverage_unlock);
+            Three[] level3 = unlockReader.ReturnThreeLevel();
+            foreach (Three data in level3)
+            {
+                cone_names.Add(data.cone_unlock);
+                sauce_names.Add(data.sauces_unlock);
+                flavor_names.Add(data.flavor_unlock);
+                topping_names.Add(data.topping_unlock);
+                beverage_names.Add(data.beverage_unlock);
+            }
         }
-        Four[] level4 = unlockReader.ReturnFourLevel();
-        foreach (Four data in level4)
-        {
-            cone_names.Add(data.cone_unlock);
-            sauce_names.Add(data.sauces_unlock);
-            flavor_names.Add(data.flavor_unlock);
-            topping_names.Add(data.topping_unlock);
-            beverage_names.Add(data.beverage_unlock);
+        if (tempXPRead >= 4000)
+                {
+            Four[] level4 = unlockReader.ReturnFourLevel();
+            foreach (Four data in level4)
+            {
+                cone_names.Add(data.cone_unlock);
+                sauce_names.Add(data.sauces_unlock);
+                flavor_names.Add(data.flavor_unlock);
+                topping_names.Add(data.topping_unlock);
+                beverage_names.Add(data.beverage_unlock);
+            }
         }
-        Five[] level5 = unlockReader.ReturnFiveLevel();
-        foreach (Five data in level5)
+         if (tempXPRead >= 5000)
         {
-            cone_names.Add(data.cone_unlock);
-            sauce_names.Add(data.sauces_unlock);
-            flavor_names.Add(data.flavor_unlock);
-            topping_names.Add(data.topping_unlock);
-            beverage_names.Add(data.beverage_unlock);
+            Five[] level5 = unlockReader.ReturnFiveLevel();
+            foreach (Five data in level5)
+            {
+                cone_names.Add(data.cone_unlock);
+                sauce_names.Add(data.sauces_unlock);
+                flavor_names.Add(data.flavor_unlock);
+                topping_names.Add(data.topping_unlock);
+                beverage_names.Add(data.beverage_unlock);
+            }
         }
 
 

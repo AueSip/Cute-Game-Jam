@@ -2,6 +2,7 @@ using System.Threading;
 using JetBrains.Annotations;
 using UnityEditor.Rendering;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 
 public class S_DayCycle : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class S_DayCycle : MonoBehaviour
     private float CurrentTime = 0f;
     public bool dayRunning = false;
 
+    public GameObject directionalLight;
     public GameManager gm;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -23,6 +25,8 @@ public class S_DayCycle : MonoBehaviour
         if (dayRunning)
         {
             CurrentTime += Time.deltaTime;
+            gm.uiManager.UpdateDialRotation(CurrentTime, DayLength);
+            UpdateDirectionalLight(CurrentTime, DayLength);
             if (CurrentTime >= DayLength)
             {
                 EndDay();
@@ -34,6 +38,7 @@ public class S_DayCycle : MonoBehaviour
     {
         CurrentTime = 0f;
         dayRunning = true;
+        
     }
 
     public void EndDay()
@@ -51,5 +56,16 @@ public class S_DayCycle : MonoBehaviour
     {
         return !dayRunning;
     }
+
+    public void UpdateDirectionalLight(float value, float maxTime)
+{
+    float t = Mathf.Clamp01((float)value / maxTime);
+
+    
+    float angle = t * 270f;
+
+    
+    directionalLight.transform.rotation = Quaternion.Euler(angle, 0, 0);
+}
     
 }
