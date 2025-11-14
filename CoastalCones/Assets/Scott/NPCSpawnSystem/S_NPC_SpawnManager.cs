@@ -15,11 +15,19 @@ public class S_NPC_SpawnManager : MonoBehaviour
 
     List<GameObject> all_npcs = new();
 
+
+
     //TEMP
-    public S_IceCreamGenerator iceCreamGenerator;
+    private S_IceCreamGenerator iceCreamGenerator;
     
     void Start()
+    {   
+        
+    }
+
+    public void Init()
     {
+        iceCreamGenerator = GameObject.Find("GameManager").GetComponent<S_IceCreamGenerator>();
         SpawnNPCAndMoveLocation();
     }
     public void SpawnNPC()
@@ -107,6 +115,11 @@ public class S_NPC_SpawnManager : MonoBehaviour
         
        
         SpawnNPCAndMoveLocation();
+    }
+
+    public IceCreams GetFirstNPCIceCream()
+    {
+        return all_npcs[9].GetComponent<S_NPC>().GetIceCream();
     }
 
 }

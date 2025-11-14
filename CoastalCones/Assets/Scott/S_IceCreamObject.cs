@@ -17,15 +17,15 @@ public class S_IceCreamObject : MonoBehaviour
     void Start()
     {   
         iceCream.GenerateYourIceCream();
-    
+         UpdateConeMesh(listOfItems.ReturnThisCone("cone"));
         
-        
-        UpdateConeMesh(listOfItems.ReturnThisCone("cone"));
+        /*
+       
         UpdateIceCreamMesh(listOfItems.ReturnThisFlavor("chocolate"));
         UpdateToppingMesh(listOfItems.ReturnThisTopping("bluedust"));
         UpdateSauceMesh(listOfItems.ReturnThisSauce("lime"));
         UpdateBeverageMesh(listOfItems.ReturnThisBeverage("pok"));
-        
+        */
     }
 
     // Update is called once per frame
@@ -70,7 +70,7 @@ public class S_IceCreamObject : MonoBehaviour
         iceCream.SetSauceVal(0, chosenSauce);
         if (iceCream.sauces[0].name != null)
         {
-            UpdateRenderObject(sauceObject, true);;
+            UpdateRenderObject(sauceObject, true);
             SetMeshMaterial(sauceObject, chosenSauce.color);
         }
     }
@@ -86,9 +86,10 @@ public class S_IceCreamObject : MonoBehaviour
     }
 
 
-
+    
     void SetMeshMaterial(GameObject mesh, string color)
     {   
+        
         Color MyColour = Color.clear;
         ColorUtility.TryParseHtmlString (color, out MyColour);
         mesh.GetComponent<Renderer>().material.SetColor("_BaseColor", MyColour);
@@ -102,6 +103,11 @@ public class S_IceCreamObject : MonoBehaviour
             obj.GetComponent<MeshRenderer>().enabled = value;
         }
 
+    }
+
+    public IceCreams ReturnIceCream()
+    {
+        return iceCream;
     }
 
     

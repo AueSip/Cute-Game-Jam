@@ -5,7 +5,7 @@ using UnityEngine;
 public class S_Interactable_Object : S_Interactable_Base
 {
 
-    float move_to_hand_time = 1f;
+    float move_to_hand_time = 2f;
 
     
     

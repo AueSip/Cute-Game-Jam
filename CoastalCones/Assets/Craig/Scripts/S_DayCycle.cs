@@ -23,7 +23,6 @@ public class S_DayCycle : MonoBehaviour
         if (dayRunning)
         {
             CurrentTime += Time.deltaTime;
-            print(CurrentTime);
             if (CurrentTime >= DayLength)
             {
                 EndDay();

@@ -2,11 +2,10 @@ using System.Collections.Generic;
 using UnityEngine;
 public class S_IceCreamGenerator : MonoBehaviour
 {
-    public JSONReader jsonReader;
+    private JSONReader jsonReader;
 
-    public MachineUnlockReader unlockReader;
+    private MachineUnlockReader unlockReader;
 
-    public List<Transform> NPCLocations;
 
     List<string> cone_names = new();
     List<string> sauce_names = new();
@@ -17,13 +16,20 @@ public class S_IceCreamGenerator : MonoBehaviour
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
-    {      
+    {   
+       
+        
+    }
+
+    public void Init()
+    {
+        jsonReader = GameObject.Find("GameManager").GetComponent<JSONReader>();
+        unlockReader = GameObject.Find("GameManager").GetComponent<MachineUnlockReader>();
         GetUnlocks();
         for (int i = 0; i < 6; i++)
         {
             ReturnIceCream();
         }
-        
     }
 
     // Update is called once per frame

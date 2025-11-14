@@ -3,8 +3,8 @@ using UnityEngine;
 public class S_Placement_Pos : MonoBehaviour
 {   
 
-    public JSONReader listReader;
-    
+
+    bool itemPlaced = false;
     private S_IceCreamObject playerIceCreamCode;
     GameObject iceCreamObj;
     public Transform GetObjectPlaceTarget()
@@ -16,14 +16,29 @@ public class S_Placement_Pos : MonoBehaviour
     {
         iceCreamObj = iceCream; 
         SetPieceValue();
-
+        SetItemPlaced(true);
+        
+        //DEBUG ON COMPLETION
+        if (itemPlaced)
+        {
+            OnMinigameComplete();
+        }
     }
 
-    public virtual void OnMinigameComplete(string str)
+    public virtual void OnMinigameComplete()
     {
 
     }
 
+    public void SetItemPlaced(bool val)
+    {
+        itemPlaced = val;
+    }
+
+     public bool GetItemPlaced()
+    {
+        return itemPlaced;
+    }
 
 
 

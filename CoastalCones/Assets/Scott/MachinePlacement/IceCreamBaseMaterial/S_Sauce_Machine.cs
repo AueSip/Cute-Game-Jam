@@ -9,9 +9,9 @@ public class S_Sauce_Machine : S_Placement_Pos
     public string machineDispenses;
 
     public JSONReader listofItems;
-    public override void OnMinigameComplete(string str)
+    public override void OnMinigameComplete()
     {
-        base.OnMinigameComplete(str);
+        base.OnMinigameComplete();
         GetCodeObject().UpdateSauceMesh(listofItems.ReturnThisSauce(machineDispenses));
     }
 

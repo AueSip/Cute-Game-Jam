@@ -36,7 +36,7 @@
                 {
                     "name":"chocolate",
                     "value":25,
-                    "color":"brown",
+                    "color":"chocolate",
                     "cost":150
                 },
                 {
@@ -50,25 +50,25 @@
                 {
                     "name":"sprinkles",
                     "value":5,
-                    "color":"pink",
+                    "color":"coral",
                     "cost":15
                 },
                   {
                     "name":"flake",
                     "value":10,
-                    "color":"brown",
+                    "color":"chocolate",
                     "cost":30
                 },
                 {
                     "name":"jellies",
                     "value":20,
-                    "color":"pink",
+                    "color":"coral",
                     "cost":60
                 },
                 {
                     "name":"pinkdust",
                     "value":25,
-                    "color":"pink",
+                    "color":"coral",
                     "cost":120
                 },
                 {
@@ -88,13 +88,13 @@
                   {
                     "name":"chocolate",
                     "value":20,
-                    "color":"brown",
+                    "color":"chocolate",
                     "cost":50
                 },
                 {
                     "name":"strawberry",
                     "value":30,
-                    "color":"pink",
+                    "color":"coral",
                     "cost":100
                 },
                 {
@@ -126,7 +126,7 @@
                 {
                     "name":"mrsalt",
                     "value":60,
-                    "color":"brown",
+                    "color":"chocolate",
                     "cost":120
                 },
                 {

@@ -9,7 +9,8 @@ public class GameManager : MonoBehaviour
     public S_DayCycle dayCycleSC;
     public PlayerReader playerReader;
     public SaveData saveData;
-
+    public S_IceCreamGenerator iceCreamGenerator;
+    public S_NPC_SpawnManager npcSpawnManagement;
     int money;
     int experience;
     int rating;
@@ -22,9 +23,10 @@ public class GameManager : MonoBehaviour
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
-    {
+    {   
         SetValue();
-
+        iceCreamGenerator.Init();
+        npcSpawnManagement.Init();
         dayCycleSC.gm = this;
 
         GameLoop();

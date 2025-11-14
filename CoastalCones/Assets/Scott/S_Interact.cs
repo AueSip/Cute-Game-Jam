@@ -28,7 +28,9 @@ public class S_Interact : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {   
+        TestRay();
+        
         if (objectHeld == null)
         {
             return;
@@ -39,7 +41,7 @@ public class S_Interact : MonoBehaviour
             objectHeld.UpdateThisTransform(heldLocation);
         }
 
-        TestRay();
+        
 
     }
     
@@ -109,7 +111,7 @@ public class S_Interact : MonoBehaviour
         if (itemHeld && objectHeld != null && Placements != null)
         {
             PlaceHeldItem(player);
-    
+
         }
         
     }
@@ -125,8 +127,15 @@ public class S_Interact : MonoBehaviour
         objectHeld.SetInteractable(true);
         objectHeld.SetCollisionEnabled(true);
         objectHeld.SetTargetPosition(Placements[Placements.Count-1].GetObjectPlaceTarget());
+      
+
         objectHeld.Interacted(player, this);
         print("PLACED THIS OBJ");
+
+        Placements[Placements.Count-1].PlacedIceCream(objectHeld.gameObject);
+        //DEBUG
+        Placements[Placements.Count-1].OnMinigameComplete();
+
         objectHeld = null;
         itemHeld = false;
     }
@@ -134,7 +143,7 @@ public class S_Interact : MonoBehaviour
     public void GrabItem(GameObject player)
     {
         foreach (S_Interactable_Base sc in Overlaps)
-        {
+        {   
             if (sc != null && objectHeld == null)
             {
                 S_Interactable_Base obj = sc;
@@ -145,9 +154,12 @@ public class S_Interact : MonoBehaviour
                 objectHeld = obj;
                 print("GRABBED THIS OBJ");
                 Overlaps.Remove(sc);
-
-
-            }
+                 if (Placements.Count > 0)
+                 {
+                Placements[Placements.Count-1].PlacedIceCream(objectHeld.gameObject);
+                 }
+                 
+            } 
             itemHeld = true;
         }
         

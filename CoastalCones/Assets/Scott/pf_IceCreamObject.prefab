@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2481719851146828534}
   - component: {fileID: 2100913082101066115}
   - component: {fileID: 1042164921164897195}
-  - component: {fileID: 4712950963047824560}
   m_Layer: 0
   m_Name: IceCream
   m_TagString: Untagged
@@ -90,27 +89,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &4712950963047824560
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3876741250912729463}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5439726346974137956
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,7 +100,6 @@ GameObject:
   - component: {fileID: 2483667833231751604}
   - component: {fileID: 2187917221289721759}
   - component: {fileID: 8651594778859581235}
-  - component: {fileID: 648322663797639808}
   m_Layer: 0
   m_Name: Topping
   m_TagString: Untagged
@@ -201,27 +178,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &648322663797639808
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5439726346974137956}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6380780622586602062
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,7 +191,8 @@ GameObject:
   - component: {fileID: 8144269947355912994}
   - component: {fileID: 2470897639482073517}
   - component: {fileID: 3014029333682666964}
-  - component: {fileID: 6870462372623465692}
+  - component: {fileID: 9068264273811869753}
+  - component: {fileID: 999026119253330738}
   m_Layer: 0
   m_Name: pf_IceCreamObject
   m_TagString: Untagged
@@ -252,7 +209,7 @@ Transform:
   m_GameObject: {fileID: 6380780622586602062}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.5439, y: -1.45, z: -9.48801}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -353,7 +310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cecab62f6e254f94fb18d24f310e8b18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::S_IceCreamObject
-  listOfItems: {fileID: 6870462372623465692}
+  listOfItems: {fileID: 0}
   iceCream:
     cones: []
     flavors: []
@@ -365,7 +322,7 @@ MonoBehaviour:
   toppingObject: {fileID: 5439726346974137956}
   sauceObject: {fileID: 9170819579435058101}
   beverageObject: {fileID: 7134742623164008828}
---- !u!114 &6870462372623465692
+--- !u!114 &9068264273811869753
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -374,10 +331,37 @@ MonoBehaviour:
   m_GameObject: {fileID: 6380780622586602062}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9600a50d485101042b66013d3d218ee6, type: 3}
+  m_Script: {fileID: 11500000, guid: 89eada7e8ceabdf4a9eaa931ea395d76, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::JSONReader
-  jsonFile: {fileID: 4900000, guid: 94eda97c4831f65408162a04a679cfbb, type: 3}
+  m_EditorClassIdentifier: Assembly-CSharp::S_Interactable_Object
+  interactable: 1
+--- !u!54 &999026119253330738
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6380780622586602062}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &7134742623164008828
 GameObject:
   m_ObjectHideFlags: 0
@@ -389,7 +373,6 @@ GameObject:
   - component: {fileID: 8780795374114431148}
   - component: {fileID: 4724903300831610787}
   - component: {fileID: 1795295436256626334}
-  - component: {fileID: 2946063470289490238}
   m_Layer: 0
   m_Name: Beverage
   m_TagString: Untagged
@@ -468,29 +451,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &2946063470289490238
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7134742623164008828}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &9170819579435058101
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,7 +462,6 @@ GameObject:
   - component: {fileID: 8986785453198264092}
   - component: {fileID: 2866841736450101049}
   - component: {fileID: 531811246372214613}
-  - component: {fileID: 2647673033692731825}
   m_Layer: 0
   m_Name: Sauce
   m_TagString: Untagged
@@ -581,24 +540,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2647673033692731825
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9170819579435058101}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
