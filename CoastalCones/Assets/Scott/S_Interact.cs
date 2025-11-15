@@ -106,18 +106,21 @@ public class S_Interact : MonoBehaviour
     public void CallInteract(GameObject player)
     {   
 
-        print("ITEM HELD VALUE:" + itemHeld);
+        
        if (!itemHeld)
         {
             GrabItem(player);
             soundManager.PlayInteractList();
+            return; 
         }
         if (itemHeld && objectHeld != null && Placements != null)
         {
             PlaceHeldItem(player);
             soundManager.PlayInteractList();
+            return;
 
         }
+        print("ITEM HELD VALUE:" + itemHeld);
     }
 
     public Transform GetHeldTransform()
@@ -139,9 +142,10 @@ public class S_Interact : MonoBehaviour
         objectHeld.Interacted(player, this);
         print("PLACED THIS OBJ");
 
+        
         Placements[Placements.Count-1].PlacedIceCream(objectHeld.gameObject);
         //DEBUG
-        Placements[Placements.Count-1].OnMinigameComplete();
+        
 
         objectHeld = null;
         itemHeld = false;

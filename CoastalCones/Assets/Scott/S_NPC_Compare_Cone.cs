@@ -23,6 +23,7 @@ public class S_NPC_Compare_Cone : S_Placement_Pos
     }
     public override void OnMinigameComplete()
     {   
+        
         base.OnMinigameComplete();
         if (GetPlayerIceCream() != null)
         {
@@ -36,14 +37,12 @@ public class S_NPC_Compare_Cone : S_Placement_Pos
                 print("Correct IceCream");
                 RewardPlayerForSale(true,GetPlayerIceCream().GetComponent<S_IceCreamObject>().iceCream);
                 gameManager.npcAudioManager.PlayFinishedList();
-                npc.GetComponent<S_AnimatorManager>().Animate(4);
             }
             else
             {
                 print("WRONG ICECREAM");
                 RewardPlayerForSale(false,GetPlayerIceCream().GetComponent<S_IceCreamObject>().iceCream);
                 gameManager.npcAudioManager.PlayNegativeSound();
-                npc.GetComponent<S_AnimatorManager>().Animate(2);
             }
             
             

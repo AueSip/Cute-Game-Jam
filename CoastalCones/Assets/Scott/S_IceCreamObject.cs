@@ -5,7 +5,7 @@ public class S_IceCreamObject : MonoBehaviour
 {   
 
     private JSONReader listOfItems;
-
+    
     private GameManager gameManager;
     public IceCreams iceCream = new();
     public GameObject coneObject;
@@ -43,8 +43,8 @@ public class S_IceCreamObject : MonoBehaviour
         iceCream.SetConeValue(0, chosenCone);
         if (iceCream.cones[0].name != "none")
         {
-            UpdateRenderObject(coneObject, true);
-            SetMeshMaterial(coneObject, chosenCone.color);
+            //UpdateRenderObject(coneObject, true);
+            SetMeshMaterial(coneObject, chosenCone.name);
         }
     }
 
@@ -53,8 +53,8 @@ public class S_IceCreamObject : MonoBehaviour
         iceCream.SetFlavorVal(0, chosenFlavor);
         if (iceCream.flavors[0].name != "none")
         {
-            UpdateRenderObject(iceCreamObject, true);
-            SetMeshMaterial(iceCreamObject, chosenFlavor.color);
+            //UpdateRenderObject(iceCreamObject, true);
+            SetMeshMaterial(iceCreamObject, chosenFlavor.name);
         }
         
     }
@@ -64,8 +64,8 @@ public class S_IceCreamObject : MonoBehaviour
         iceCream.SetToppingVal(0, chosenTopping);
         if (iceCream.toppings[0].name != "none")
         {
-            UpdateRenderObject(toppingObject, true);;
-            SetMeshMaterial(toppingObject, chosenTopping.color);
+           // UpdateRenderObject(toppingObject, true);
+            SetMeshMaterial(toppingObject, chosenTopping.name);
         }
     }
 
@@ -74,8 +74,8 @@ public class S_IceCreamObject : MonoBehaviour
         iceCream.SetSauceVal(0, chosenSauce);
         if (iceCream.sauces[0].name != "none")
         {
-            UpdateRenderObject(sauceObject, true);
-            SetMeshMaterial(sauceObject, chosenSauce.color);
+            //UpdateRenderObject(sauceObject, true);
+            SetMeshMaterial(sauceObject, chosenSauce.name);
         }
     }
 
@@ -84,19 +84,24 @@ public class S_IceCreamObject : MonoBehaviour
         iceCream.SetBeverageVal(0, chosenBeverage);
         if (iceCream.beverages[0].name != "none")
         {
-            UpdateRenderObject(beverageObject, true);
-            SetMeshMaterial(beverageObject, chosenBeverage.color);
+            //UpdateRenderObject(beverageObject, true);
+            SetMeshMaterial(beverageObject, chosenBeverage.name);
         }
     }
 
 
     
-    void SetMeshMaterial(GameObject mesh, string color)
+    void SetMeshMaterial(GameObject mesh, string modelName)
     {   
-        
-        Color MyColour = Color.clear;
-        ColorUtility.TryParseHtmlString (color, out MyColour);
-        mesh.GetComponent<Renderer>().material.SetColor("_BaseColor", MyColour);
+        Transform target = mesh.transform.Find(modelName);
+        if (target != null)
+        {
+            target.gameObject.SetActive(true);
+        }
+        else
+        {
+            Debug.LogWarning($"Model '{modelName}' not found under '{this.name}'");
+        }
         
     }
 

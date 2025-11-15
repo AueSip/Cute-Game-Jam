@@ -8,9 +8,10 @@ public class S_AnimatorManager : MonoBehaviour
 
     private GameObject chosenModel;
     void Start()
-    {
+    {   
         chosenModel = npcModels[Random.Range(0,npcModels.Count)];
         chosenModel.SetActive(true);
+        BlinkRandom();
     }
 
     // Update is called once per frame
@@ -19,12 +20,25 @@ public class S_AnimatorManager : MonoBehaviour
         
     }
 
-    public void Animate(int value)
+    public void SetSpeaking()
     {   
         if (chosenModel != null)
-        {
-            chosenModel.GetComponent<Animator>().SetInteger("Action", value);
+        {   
+            print("I AM SPEAKING");
+            chosenModel.GetComponent<Animator>().SetTrigger("Speaking");
         }
         
+    }
+
+
+    public async void BlinkRandom()
+    {
+        await Awaitable.WaitForSecondsAsync(Random.Range(0,2));
+         if (chosenModel != null)
+        {   
+            print("I AM BLINKING");
+            chosenModel.GetComponent<Animator>().SetTrigger("Blinking");
+        }
+        BlinkRandom();
     }
 }

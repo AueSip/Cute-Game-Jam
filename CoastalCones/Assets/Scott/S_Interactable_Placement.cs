@@ -17,6 +17,7 @@ public class S_Placement_Pos : MonoBehaviour
         iceCreamObj = iceCream; 
         SetPieceValue();
         SetItemPlaced(true);
+        print("PLACED IT");
         
         //DEBUG ON COMPLETION
         if (itemPlaced)

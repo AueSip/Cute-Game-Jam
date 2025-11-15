@@ -57,6 +57,7 @@ public class S_NPC_SpawnManager : MonoBehaviour
             GameObject tempNPC = Instantiate(npc, initial_Spawn);
             tempNPC.GetComponent<S_NPC>().SetRequest(iceCreamGenerator.ReturnIceCream());
             all_npcs.Add(tempNPC);
+            
         }
        
     }
@@ -66,11 +67,10 @@ public class S_NPC_SpawnManager : MonoBehaviour
         GameObject first = pf_NPCS[0];
         pf_NPCS.RemoveAt(0);
         StartCoroutine(MoveAndDelete(first,first.transform, leaveLocation));
-        gameManager.npcAudioManager.PlayAppearList();
-        if (pf_NPCS != null && pf_NPCS.Count > 0)
+        /*if (pf_NPCS != null && pf_NPCS.Count > 0)
         {
-             pf_NPCS[0].GetComponent<S_AnimatorManager>().Animate(2);
-        }
+             pf_NPCS[0].GetComponent<S_AnimatorManager>().SetSpeaking();
+        }*/
        
         
     }
@@ -94,7 +94,6 @@ public class S_NPC_SpawnManager : MonoBehaviour
     
     IEnumerator MoveToNewPosition(GameObject target,Transform startPosition, Transform endPosition)
     {   
-        target.GetComponent<S_AnimatorManager>().Animate(1);
         moving = true;
         float timeElapsed = 0;
         Vector3 tempPos = startPosition.position;
@@ -108,7 +107,8 @@ public class S_NPC_SpawnManager : MonoBehaviour
             yield return null;
         }
         UpdateTransform(target,endPosition);
-        target.GetComponent<S_AnimatorManager>().Animate(0);
+        all_npcs[0].GetComponent<S_AnimatorManager>().SetSpeaking();
+        gameManager.npcAudioManager.PlayAppearList();
         moving = false;;
     }
     //I HATE THIS BUT IT WORKS
