@@ -18,13 +18,13 @@ public class S_Ui_Manager : MonoBehaviour
 
     public TextMeshProUGUI timerCount;
 
-    private float progressSizeX;
+    private float progressSizeX = 216f;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
-    {
-        progressSizeX = progressBar.rectTransform.rect.width;
+    {  
+        
     }
 
     // Update is called once per frame
@@ -33,10 +33,9 @@ public class S_Ui_Manager : MonoBehaviour
         
     }   
 
-    public void UpdateRatingScale(float Value)
+    public void UpdateRatingScale(float value)
     {
-       float newWidth = progressSizeX / Value;
-        progressBar.rectTransform.sizeDelta = new Vector2(newWidth, progressBar.rectTransform.sizeDelta.y);
+        progressBar.fillAmount = value / 5f;
     }
 
         public void UpdateCurrency(int amount)

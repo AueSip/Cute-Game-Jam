@@ -13,7 +13,7 @@ public class SaveData : MonoBehaviour
         wrapper.playerSaves = new PlayerSave[] { playerSave };
 
         string json = JsonUtility.ToJson(wrapper, true);
-        string filePath = Path.Combine(Application.persistentDataPath + "/playerdata.json");
+        string filePath = Path.Combine(Application.persistentDataPath,"playerdata.json");
         Debug.Log(filePath);
         File.WriteAllText(filePath, json);
         Debug.Log($"saved to {filePath}");

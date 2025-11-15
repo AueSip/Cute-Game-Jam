@@ -11,6 +11,8 @@ public class S_NPC_SpawnManager : MonoBehaviour
 
     public Transform leaveLocation;
     public float move_to_location_time;
+
+    public float move_to_delete_time = 5f;
     public List<Transform> locationsForNPCS;
 
     public Transform initial_Spawn;
@@ -19,7 +21,7 @@ public class S_NPC_SpawnManager : MonoBehaviour
 
     private GameManager gameManager;
 
-    float happyTime;
+    float happyTime = 30f;
 
     float currentHappyTime;
 
@@ -30,7 +32,9 @@ public class S_NPC_SpawnManager : MonoBehaviour
 
     //TEMP
     private S_IceCreamGenerator iceCreamGenerator;
-    
+    public S_Interact interactionPlayer;
+
+
     void Start()
     {   
       
@@ -62,7 +66,12 @@ public class S_NPC_SpawnManager : MonoBehaviour
         GameObject first = pf_NPCS[0];
         pf_NPCS.RemoveAt(0);
         StartCoroutine(MoveAndDelete(first,first.transform, leaveLocation));
-        SpawnNPCAndMoveLocation();
+        gameManager.npcAudioManager.PlayAppearList();
+        if (pf_NPCS != null && pf_NPCS.Count > 0)
+        {
+             pf_NPCS[0].GetComponent<S_AnimatorManager>().Animate(2);
+        }
+       
         
     }
 
@@ -84,7 +93,8 @@ public class S_NPC_SpawnManager : MonoBehaviour
     }
     
     IEnumerator MoveToNewPosition(GameObject target,Transform startPosition, Transform endPosition)
-    {
+    {   
+        target.GetComponent<S_AnimatorManager>().Animate(1);
         moving = true;
         float timeElapsed = 0;
         Vector3 tempPos = startPosition.position;
@@ -98,7 +108,7 @@ public class S_NPC_SpawnManager : MonoBehaviour
             yield return null;
         }
         UpdateTransform(target,endPosition);
-        
+        target.GetComponent<S_AnimatorManager>().Animate(0);
         moving = false;;
     }
     //I HATE THIS BUT IT WORKS
@@ -108,10 +118,10 @@ public class S_NPC_SpawnManager : MonoBehaviour
         float timeElapsed = 0;
         Vector3 tempPos = startPosition.position;
         Quaternion tempRot = startPosition.rotation;
-        while (timeElapsed < move_to_location_time)
+        while (timeElapsed < move_to_delete_time)
         {
-            tempPos = Vector3.Lerp(startPosition.position, endPosition.position, timeElapsed / move_to_location_time);
-            tempRot = Quaternion.Lerp(startPosition.rotation, endPosition.rotation, timeElapsed / move_to_location_time);
+            tempPos = Vector3.Lerp(startPosition.position, endPosition.position, timeElapsed / move_to_delete_time);
+            tempRot = Quaternion.Lerp(startPosition.rotation, endPosition.rotation, timeElapsed / move_to_delete_time);
             timeElapsed += Time.deltaTime;
             target.transform.SetPositionAndRotation(tempPos, tempRot);
             yield return null;
@@ -119,7 +129,7 @@ public class S_NPC_SpawnManager : MonoBehaviour
         UpdateTransform(target,endPosition);
         
         moving = false;
-        Destroy(target);Destroy(target);
+        Destroy(target);
     }
 
     public void UpdateTransform(GameObject target,Transform endPosition)
@@ -135,6 +145,7 @@ public class S_NPC_SpawnManager : MonoBehaviour
 
 
         IceCreams iceCream = all_npcs[0].GetComponent<S_NPC>().GetIceCream();
+        
         print("I GENERATED THIS NEW ICECRREAM" + " CONE: " + iceCream.cones[0].name  + " FLAVOR: " + iceCream.flavors[0].name + " TOP: " + iceCream.toppings[0].name  + " SAUCE: " +  iceCream.sauces[0].name + " BEVERAGE: " + iceCream.beverages[0].name);
         print("This ice cream costs: " + (iceCream.cones[0].cost + iceCream.flavors[0].cost + iceCream.toppings[0].cost + iceCream.sauces[0].cost + iceCream.beverages[0].cost) + " Euros");
         
@@ -142,8 +153,10 @@ public class S_NPC_SpawnManager : MonoBehaviour
     }
 
     public IceCreams GetFirstNPCIceCream()
-    {
+    {  
+       
         return all_npcs[0].GetComponent<S_NPC>().GetIceCream();
+      
     }
 
     public void NPCServed()
@@ -165,20 +178,29 @@ public class S_NPC_SpawnManager : MonoBehaviour
         
         float rn = Random.Range(waitTimeMin, waitTimeMax-gameManager.GetRating());
         await Awaitable.WaitForSecondsAsync(rn);
+        
         NPC_SpawnLoop();
     }
 
 
     public void ManageHappyTime()
     {   
-        currentHappyTime--;
-        gameManager.ReturnUIManager().UpdateTimer((int)currentHappyTime);
-        if (currentHappyTime <= 0)
+        if (all_npcs.Count > 0)
         {
-            NPCServed();
-            
-        }
+            currentHappyTime--;
+           
+            if (currentHappyTime <= 0)
+            {
+                NPCServed();
+                
+            }
         print("CURRENT WAIT: " + currentHappyTime);
+        }
+        else {
+            currentHappyTime = happyTime;
+           
+        }
+        gameManager.ReturnUIManager().UpdateTimer((int)currentHappyTime);
         
     }
 }

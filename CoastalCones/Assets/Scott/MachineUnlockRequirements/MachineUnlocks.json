@@ -9,7 +9,7 @@
     ],
     "one":[
         {      
-            "sauces_unlock":"blueberry",
+            "sauces_unlock":"blue",
             "cone_unlock":"cone",
             "flavor_unlock":"vanilla",
             "topping_unlock":"sprinkles",
@@ -36,7 +36,7 @@
     ],
      "four":[
         {      
-            "sauces_unlock":"chocolate",
+            "sauces_unlock":"choco",
              "cone_unlock":"cone",
              "flavor_unlock":"bubblegum",
             "topping_unlock":"pinkdust",

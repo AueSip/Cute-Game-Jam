@@ -9,7 +9,8 @@ public class S_Interact : MonoBehaviour
     */
     List<S_Interactable_Base> Overlaps = new List<S_Interactable_Base>();
     List<S_Placement_Pos> Placements = new List<S_Placement_Pos>();
-
+    
+    public Script_Sound_Player soundManager;
     bool itemHeld = false;
 
     S_Interactable_Base objectHeld;
@@ -20,7 +21,8 @@ public class S_Interact : MonoBehaviour
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
-    {
+    {   
+
         //ui_Handler = GameObject.Find("Canvas").GetComponent<Script_UI_Handler>();
         defTran = this.transform;
 
@@ -102,18 +104,20 @@ public class S_Interact : MonoBehaviour
     }
 
     public void CallInteract(GameObject player)
-    {
+    {   
+
         print("ITEM HELD VALUE:" + itemHeld);
        if (!itemHeld)
         {
             GrabItem(player);
+            soundManager.PlayInteractList();
         }
         if (itemHeld && objectHeld != null && Placements != null)
         {
             PlaceHeldItem(player);
+            soundManager.PlayInteractList();
 
         }
-        
     }
 
     public Transform GetHeldTransform()
@@ -123,10 +127,13 @@ public class S_Interact : MonoBehaviour
 
     public void PlaceHeldItem(GameObject player)
     {
-       
-        objectHeld.SetInteractable(true);
-        objectHeld.SetCollisionEnabled(true);
-        objectHeld.SetTargetPosition(Placements[Placements.Count-1].GetObjectPlaceTarget());
+       if (Placements.Count > 0)
+        {
+            objectHeld.SetInteractable(true);
+            objectHeld.SetCollisionEnabled(true);
+            objectHeld.SetTargetPosition(Placements[Placements.Count-1].GetObjectPlaceTarget());
+        }
+        
       
 
         objectHeld.Interacted(player, this);
@@ -163,5 +170,10 @@ public class S_Interact : MonoBehaviour
             itemHeld = true;
         }
         
+    }
+
+    public void SetItemHeld(bool held)
+    {
+        itemHeld = held;
     }
 }

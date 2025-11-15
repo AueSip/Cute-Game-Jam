@@ -30,11 +30,19 @@ public class IceCreams
 
     public void GenerateYourIceCream()
     {
-         cones = new Cone[1];
-         flavors = new Flavor[1];
+        cones = new Cone[1];
+        
+
+        flavors = new Flavor[1];
+        
         toppings = new Topping[1];
+        
+
         sauces = new Sauce[1];
+       
+
         beverages = new Beverage[1];
+       
     }
 
     public void SetConeValue(int index, Cone coneVal)

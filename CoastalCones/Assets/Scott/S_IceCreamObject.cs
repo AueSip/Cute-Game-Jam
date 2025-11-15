@@ -19,15 +19,6 @@ public class S_IceCreamObject : MonoBehaviour
     void Start()
     {       
 
-        
-        
-        /*
-       
-        UpdateIceCreamMesh(listOfItems.ReturnThisFlavor("chocolate"));
-        UpdateToppingMesh(listOfItems.ReturnThisTopping("bluedust"));
-        UpdateSauceMesh(listOfItems.ReturnThisSauce("lime"));
-        UpdateBeverageMesh(listOfItems.ReturnThisBeverage("pok"));
-        */
     }
 
     public void Init(GameManager gm)
@@ -35,6 +26,10 @@ public class S_IceCreamObject : MonoBehaviour
        gameManager = gm;
        iceCream.GenerateYourIceCream();
         UpdateConeMesh(gm.GetComponent<JSONReader>().ReturnThisCone("cone"));
+         UpdateIceCreamMesh(gm.GetComponent<JSONReader>().ReturnThisFlavor("none"));
+        UpdateToppingMesh(gm.GetComponent<JSONReader>().ReturnThisTopping("none"));
+        UpdateSauceMesh(gm.GetComponent<JSONReader>().ReturnThisSauce("none"));
+        UpdateBeverageMesh(gm.GetComponent<JSONReader>().ReturnThisBeverage("none"));
     }
 
     // Update is called once per frame
@@ -46,7 +41,7 @@ public class S_IceCreamObject : MonoBehaviour
     public void UpdateConeMesh(Cone chosenCone)
     {   
         iceCream.SetConeValue(0, chosenCone);
-        if (iceCream.cones[0].name != null)
+        if (iceCream.cones[0].name != "none")
         {
             UpdateRenderObject(coneObject, true);
             SetMeshMaterial(coneObject, chosenCone.color);
@@ -56,7 +51,7 @@ public class S_IceCreamObject : MonoBehaviour
     public void UpdateIceCreamMesh(Flavor chosenFlavor)
     {   
         iceCream.SetFlavorVal(0, chosenFlavor);
-        if (iceCream.flavors[0].name != null)
+        if (iceCream.flavors[0].name != "none")
         {
             UpdateRenderObject(iceCreamObject, true);
             SetMeshMaterial(iceCreamObject, chosenFlavor.color);
@@ -67,7 +62,7 @@ public class S_IceCreamObject : MonoBehaviour
      public void UpdateToppingMesh(Topping chosenTopping)
     {   
         iceCream.SetToppingVal(0, chosenTopping);
-        if (iceCream.toppings[0].name != null)
+        if (iceCream.toppings[0].name != "none")
         {
             UpdateRenderObject(toppingObject, true);;
             SetMeshMaterial(toppingObject, chosenTopping.color);
@@ -77,7 +72,7 @@ public class S_IceCreamObject : MonoBehaviour
     public void UpdateSauceMesh(Sauce chosenSauce)
     {   
         iceCream.SetSauceVal(0, chosenSauce);
-        if (iceCream.sauces[0].name != null)
+        if (iceCream.sauces[0].name != "none")
         {
             UpdateRenderObject(sauceObject, true);
             SetMeshMaterial(sauceObject, chosenSauce.color);
@@ -87,7 +82,7 @@ public class S_IceCreamObject : MonoBehaviour
      public void UpdateBeverageMesh(Beverage chosenBeverage)
     {   
         iceCream.SetBeverageVal(0, chosenBeverage);
-        if (iceCream.beverages[0].name != null)
+        if (iceCream.beverages[0].name != "none")
         {
             UpdateRenderObject(beverageObject, true);
             SetMeshMaterial(beverageObject, chosenBeverage.color);

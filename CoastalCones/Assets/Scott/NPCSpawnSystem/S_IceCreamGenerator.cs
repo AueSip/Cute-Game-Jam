@@ -8,12 +8,11 @@ public class S_IceCreamGenerator : MonoBehaviour
 
     private GameManager gameManager;
 
-    List<string> cone_names = new();
-    List<string> sauce_names = new();
-    List<string> flavor_names = new();
-    
-    List<string> topping_names = new();
-    List<string>beverage_names= new();
+    List<string> cone_names = new(){ "none" };
+    List<string> sauce_names = new(){ "none" };
+    List<string> flavor_names = new() { "none" };
+    List<string> topping_names = new() { "none" };
+    List<string> beverage_names = new() { "none" };
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -28,10 +27,9 @@ public class S_IceCreamGenerator : MonoBehaviour
         jsonReader = GameObject.Find("GameManager").GetComponent<JSONReader>();
         unlockReader = GameObject.Find("GameManager").GetComponent<MachineUnlockReader>();
         GetUnlocks();
-        for (int i = 0; i < 6; i++)
-        {
-            ReturnIceCream();
-        }
+        
+        ReturnIceCream();
+        
     }
 
     // Update is called once per frame

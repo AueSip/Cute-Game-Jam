@@ -10,13 +10,19 @@
             ],
     "sauces":[
                 {
+                    "name":"none",
+                    "value":0,
+                    "color":"white",
+                    "cost":0
+                },
+                {
                     "name":"cherry",
                     "value":5,
                     "color":"red",
                     "cost":15
                 },
                   {
-                    "name":"blueberry",
+                    "name":"blue",
                     "value":10,
                     "color":"blue",
                     "cost":30
@@ -34,7 +40,7 @@
                     "cost":120
                 },
                 {
-                    "name":"chocolate",
+                    "name":"choco",
                     "value":25,
                     "color":"chocolate",
                     "cost":150
@@ -47,6 +53,12 @@
                 }
             ],
     "toppings":[
+                {
+                    "name":"none",
+                    "value":0,
+                    "color":"white",
+                    "cost":0
+                },
                 {
                     "name":"sprinkles",
                     "value":5,
@@ -80,6 +92,12 @@
             ],
     "flavors":[
                 {
+                    "name":"none",
+                    "value":0,
+                    "color":"white",
+                    "cost":0
+                },
+                {
                     "name":"vanilla",
                     "value":5,
                     "color":"white",
@@ -111,6 +129,12 @@
                 }
             ],
      "beverages":[
+                {
+                    "name":"none",
+                    "value":0,
+                    "color":"white",
+                    "cost":0
+                },
                 {
                     "name":"sprint",
                     "value":50,

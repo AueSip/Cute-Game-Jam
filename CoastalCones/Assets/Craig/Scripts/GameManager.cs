@@ -1,6 +1,8 @@
 
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,7 +12,13 @@ public class GameManager : MonoBehaviour
     public S_IceCreamGenerator iceCreamGenerator;
     public S_NPC_SpawnManager npcSpawnManagement;
 
+    public S_Interact interactManager;
+    public Script_NPC_Audio npcAudioManager;
+
+    public Script_Music_Manager musicManager;
     public S_Ui_Manager uiManager;
+
+    public S_UnlockManager unlockManager;
 
     public S_IceCreamObject iceCreamObj;
     public Transform iceCreamSpawnLocation;
@@ -27,7 +35,12 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {   
-       GameLoop();
+        SetValue();
+        unlockManager.Init(this);
+        musicManager.StartMorningTracks();
+
+         
+
     }
 
     // Update is called once per frame
@@ -49,7 +62,7 @@ public class GameManager : MonoBehaviour
 
      public void SetRating(int value)
     {
-        rating = value;
+        rating = Mathf.Clamp(value, 0,5);
         uiManager.UpdateRatingScale(rating);
     }
 
@@ -60,7 +73,7 @@ public class GameManager : MonoBehaviour
 
      public void SetMoney(int value)
     {
-        money = value;
+        money = Mathf.Clamp(value, 0,9999);
         uiManager.UpdateCurrency(money);
     }
 
@@ -107,11 +120,12 @@ public class GameManager : MonoBehaviour
 
         Debug.Log("Day Start");
         dayCycleSC.Startday();
-        SetValue();
+        
         iceCreamGenerator.Init(this);
         npcSpawnManagement.Init(this);
         dayCycleSC.gm = this;
         SpawnIceCream();
+       
         
     }
 
@@ -123,6 +137,10 @@ public class GameManager : MonoBehaviour
         saveData.playerSave.currentDay = currentDay + 1; // day advance
         saveData.playerSave.bought_machines = bought_machines;
         saveData.SaveToJson();
+        
+        LoadScene();
+        
+        
     }
 
     public void SpawnNPCS()
@@ -166,6 +184,17 @@ public class GameManager : MonoBehaviour
     public S_Ui_Manager ReturnUIManager()
     {   
        return uiManager;
+    }
+
+    public void SetPlayerItemHeld(bool val)
+    {
+        interactManager.SetItemHeld(val);
+    }
+
+    public async void LoadScene()
+    {   
+        await Awaitable.WaitForSecondsAsync(2f);
+        SceneManager.LoadScene("SampleScene");
     }
 
    
