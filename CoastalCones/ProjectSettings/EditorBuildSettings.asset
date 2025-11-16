@@ -6,20 +6,41 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 911e551cc4f0c2c4296eb44ab991607a
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: 682b204d1d7072546b057a199d43104c
+    path: Assets/Scenes/Day1.unity
+    guid: c011836d841c43746848f525507281b6
+  - enabled: 1
+    path: Assets/Scenes/Day2.unity
+    guid: a0f567d3e0244a0459cf0302e82eefd4
+  - enabled: 1
+    path: Assets/Scenes/Day3.unity
+    guid: ef6e6be80259e844d8a6e6821fd45da8
+  - enabled: 1
+    path: Assets/Scenes/Day4.unity
+    guid: 5c7822ed3abd9ae48811855f7080ab9c
+  - enabled: 1
+    path: Assets/Scenes/Day5.unity
+    guid: 4aa77542329ab704c97a6a7f02b0dfc0
   - enabled: 1
     path: Assets/Scenes/PauseMenu.unity
     guid: c11fd379ffeb16243a6846d58a2ca641
   - enabled: 1
     path: Assets/Scenes/SettingsMenu.unity
-    guid: 5c5956ea2ebae9444a656852cca7c328
+    guid: 50dcbb0776c6a2344adcca6e9c098343
   - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: 6cd023e868bd7154eac0d42eb602f3f8
+  - enabled: 1
+    path: Assets/Scenes/WinScreen.unity
+    guid: c9c6ff1d71d05dd4da03582cf13f866c
+  - enabled: 1
+    path: Assets/Scenes/LoseScreen.unity
+    guid: da6b15c35920f314e8e8f8147d527554
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

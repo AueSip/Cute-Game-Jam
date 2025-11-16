@@ -9,12 +9,15 @@ public class S_PlayerController : MonoBehaviour
     private  Vector3 lookRot;
     private GameObject player_camera;
     public float speed_of_camera = 0.5f;
+
+    public bool activeCam = false;
     private bool camera_lock = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        SetCameraLock(false);
+        SetCameraLock(true);
         player_camera = GameObject.Find("pf_Player");
+        
     }
 
     // Update is called once per frame

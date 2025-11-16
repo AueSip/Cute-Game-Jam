@@ -265,6 +265,7 @@ MonoBehaviour:
   - {fileID: 686846686809865769}
   - {fileID: 3065449620073427105}
   - {fileID: 7654425261931609921}
+  start: {fileID: 3142494111428690937}
   level5:
   - {fileID: 2779283749634698543}
   - {fileID: 8495487546413601837}
@@ -1138,7 +1139,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 3132801190126056313}
   m_OnClick:
     m_PersistentCalls:

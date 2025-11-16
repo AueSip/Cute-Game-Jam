@@ -13,7 +13,15 @@ public class S_IceCreamObject : MonoBehaviour
     public GameObject toppingObject;
     public GameObject sauceObject;
     public GameObject beverageObject;
+    
 
+    public List<GameObject> conesToDisable;
+     public List<GameObject> iceCreamsToDisable;
+    public List<GameObject> toppingsToDisable;
+    public List<GameObject> saucesToDisable;
+    public List<GameObject> beveragesToDisable;
+
+    bool hasIcecream = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,6 +38,10 @@ public class S_IceCreamObject : MonoBehaviour
         UpdateToppingMesh(gm.GetComponent<JSONReader>().ReturnThisTopping("none"));
         UpdateSauceMesh(gm.GetComponent<JSONReader>().ReturnThisSauce("none"));
         UpdateBeverageMesh(gm.GetComponent<JSONReader>().ReturnThisBeverage("none"));
+
+        
+        iceCream.SetToppingVal(0, gm.GetComponent<JSONReader>().ReturnThisTopping("none"));
+        iceCream.SetSauceVal(0, gm.GetComponent<JSONReader>().ReturnThisSauce("none"));
     }
 
     // Update is called once per frame
@@ -44,6 +56,7 @@ public class S_IceCreamObject : MonoBehaviour
         if (iceCream.cones[0].name != "none")
         {
             //UpdateRenderObject(coneObject, true);
+            DisableTargetMeshes(conesToDisable);
             SetMeshMaterial(coneObject, chosenCone.name);
         }
     }
@@ -52,31 +65,37 @@ public class S_IceCreamObject : MonoBehaviour
     {   
         iceCream.SetFlavorVal(0, chosenFlavor);
         if (iceCream.flavors[0].name != "none")
-        {
+        {   
+            hasIcecream = true;
             //UpdateRenderObject(iceCreamObject, true);
+            DisableTargetMeshes(iceCreamsToDisable);
             SetMeshMaterial(iceCreamObject, chosenFlavor.name);
         }
         
     }
 
      public void UpdateToppingMesh(Topping chosenTopping)
-    {   
+    {   if (hasIcecream){
         iceCream.SetToppingVal(0, chosenTopping);
         if (iceCream.toppings[0].name != "none")
         {
            // UpdateRenderObject(toppingObject, true);
+            DisableTargetMeshes(toppingsToDisable);
             SetMeshMaterial(toppingObject, chosenTopping.name);
         }
     }
+    }
 
     public void UpdateSauceMesh(Sauce chosenSauce)
-    {   
+    {    if (hasIcecream){
         iceCream.SetSauceVal(0, chosenSauce);
         if (iceCream.sauces[0].name != "none")
         {
             //UpdateRenderObject(sauceObject, true);
+            DisableTargetMeshes(saucesToDisable);
             SetMeshMaterial(sauceObject, chosenSauce.name);
         }
+    }
     }
 
      public void UpdateBeverageMesh(Beverage chosenBeverage)
@@ -85,6 +104,7 @@ public class S_IceCreamObject : MonoBehaviour
         if (iceCream.beverages[0].name != "none")
         {
             //UpdateRenderObject(beverageObject, true);
+            DisableTargetMeshes(beveragesToDisable);
             SetMeshMaterial(beverageObject, chosenBeverage.name);
         }
     }
@@ -97,6 +117,7 @@ public class S_IceCreamObject : MonoBehaviour
         if (target != null)
         {
             target.gameObject.SetActive(true);
+            
         }
         else
         {
@@ -117,6 +138,17 @@ public class S_IceCreamObject : MonoBehaviour
     public IceCreams ReturnIceCream()
     {
         return iceCream;
+    }
+
+    public void DisableTargetMeshes(List<GameObject> meshes)
+    {
+        foreach (GameObject mesh in meshes)
+        {
+             if (mesh != null)
+                {
+                    mesh.gameObject.SetActive(false);
+                }
+        }
     }
 
     

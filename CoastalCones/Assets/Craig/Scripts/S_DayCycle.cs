@@ -1,8 +1,5 @@
-using System.Threading;
-using JetBrains.Annotations;
-using UnityEditor.Rendering;
+
 using UnityEngine;
-using UnityEngine.Experimental.GlobalIllumination;
 
 public class S_DayCycle : MonoBehaviour
 {

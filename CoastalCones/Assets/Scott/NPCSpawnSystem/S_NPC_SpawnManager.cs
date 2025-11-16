@@ -163,6 +163,7 @@ public class S_NPC_SpawnManager : MonoBehaviour
     {
         RemoveNPC(all_npcs);
         currentHappyTime = happyTime;
+        UpdateNPCPositions(all_npcs);
     }
 
     public async void NPC_TimerLoop()

@@ -1,6 +1,5 @@
 
 using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +7,8 @@ public class GameManager : MonoBehaviour
 {
     public S_DayCycle dayCycleSC;
     public PlayerReader playerReader;
+
+    public GameObject playerC;
     public SaveData saveData;
     public S_IceCreamGenerator iceCreamGenerator;
     public S_NPC_SpawnManager npcSpawnManagement;
@@ -31,16 +32,33 @@ public class GameManager : MonoBehaviour
     public float npc_timerMin;
     List<string> bought_machines;
 
+    S_ItemToCheckFor[] arrayOfItems;
+
+    private int defExperience = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
     void Start()
     {   
+        waitToLoad();
+    }
+
+    public async void waitToLoad()
+    {
+        await Awaitable.WaitForSecondsAsync(2f);
+        
+          if (saveData.DoesPlayerSaveExist())
+        {
         SetValue();
+         }
+        else
+        {
+            saveData.SaveToJson();
+            SetValue();
+        }
         unlockManager.Init(this);
+        arrayOfItems = GameObject.FindObjectsByType<S_ItemToCheckFor>(FindObjectsSortMode.None);
         musicManager.StartMorningTracks();
-
-         
-
     }
 
     // Update is called once per frame
@@ -58,6 +76,16 @@ public class GameManager : MonoBehaviour
     public int GetExperience()
     {
         return experience;
+    }
+
+    public int GetDefaultExperience()
+    {
+        return defExperience;
+    }
+
+    public void SetDefaultExperience(int val)
+    {
+         defExperience = val;
     }
 
      public void SetRating(int value)
@@ -116,8 +144,15 @@ public class GameManager : MonoBehaviour
 
 
     public void GameLoop()
-    {
-
+    {   
+        playerC.GetComponent<S_PlayerController>().SetCameraLock(false);
+        foreach (S_ItemToCheckFor item in arrayOfItems)
+        {
+            if (!bought_machines.Contains(item.GetName()))
+            {
+                item.Locked();
+            }
+        }
         Debug.Log("Day Start");
         dayCycleSC.Startday();
         
@@ -154,7 +189,8 @@ public class GameManager : MonoBehaviour
     }
 
     public void SetValue()
-    {
+    {   
+      
         SetExperience(playerReader.ReturnPlayerSave().experience);
         print(experience);
        
@@ -169,6 +205,10 @@ public class GameManager : MonoBehaviour
 
         SetCurrentDay(playerReader.ReturnPlayerSave().currentDay);
         print(currentDay);
+
+        SetDefaultExperience(playerReader.ReturnPlayerSave().experience);
+    
+        
         
     }
 
@@ -192,11 +232,46 @@ public class GameManager : MonoBehaviour
     }
 
     public async void LoadScene()
-    {   
+    {    
+        StopAllCoroutines();
         await Awaitable.WaitForSecondsAsync(2f);
-        SceneManager.LoadScene("SampleScene");
+       if (currentDay == 0)
+        {
+            SceneManager.LoadScene("Day1");
+        }
+        if (currentDay == 1)
+        {
+             SceneManager.LoadScene("Day2");
+        }
+        if (currentDay == 2)
+        {
+             SceneManager.LoadScene("Day3");
+        }
+        if (currentDay == 3)
+        {
+             SceneManager.LoadScene("Day4");
+        }
+        if (currentDay == 4)
+        {
+             SceneManager.LoadScene("Day5");
+        }
+        if (currentDay >= 5)
+        {   
+            if ( money >= 1000)
+            {
+                SceneManager.LoadScene("WinScreen"); 
+            }
+            else
+            {
+                SceneManager.LoadScene("LoseScreen");
+            }
+            
+        
+           
+        
     }
-
+    }
+   
    
     
    

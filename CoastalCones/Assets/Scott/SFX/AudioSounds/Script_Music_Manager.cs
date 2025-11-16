@@ -39,7 +39,6 @@ public class Script_Music_Manager : MonoBehaviour
 
     public void StartMorningTracks()
     {  
-        FadeOutAudio(music_Evening);
         FadeInAudio(music_Morning);
        
     }

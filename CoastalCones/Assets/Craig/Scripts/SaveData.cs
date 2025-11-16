@@ -31,4 +31,10 @@ public class SaveData : MonoBehaviour
     {
     
     }
+
+     public bool DoesPlayerSaveExist()
+    {
+            string filePath = Path.Combine(Application.persistentDataPath, "playerdata.json");
+            return File.Exists(filePath);
+    }
 }

@@ -7,7 +7,7 @@ public class S_Interactable_Object : S_Interactable_Base
 
     float move_to_hand_time = 2f;
 
-    
+    private Coroutine moveCoroutine;
     
     Transform originalLocation;
 
@@ -26,8 +26,12 @@ public class S_Interactable_Object : S_Interactable_Base
     {
         base.Interacted(player, interactComps);
         interactComp = interactComps;
-        StopCoroutine("MoveToHand");
-        StartCoroutine(MoveToHand(GetObjectPosition(), GetTargetPosition()));
+        if (moveCoroutine != null)
+        {
+            StopCoroutine(moveCoroutine);
+        }
+        
+        moveCoroutine = StartCoroutine(MoveToHand(GetObjectPosition(), GetTargetPosition()));
     }
 
     public Transform GetObjectPosition()

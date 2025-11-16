@@ -17,37 +17,37 @@
                 },
                 {
                     "name":"cherry",
-                    "value":5,
+                    "value":15,
                     "color":"red",
                     "cost":15
                 },
                   {
                     "name":"blue",
-                    "value":10,
+                    "value":25,
                     "color":"blue",
                     "cost":30
                 },
                 {
                     "name":"lime",
-                    "value":15,
+                    "value":35,
                     "color":"green",
                     "cost":60
                 },
                 {
                     "name":"lemon",
-                    "value":20,
+                    "value":40,
                     "color":"yellow",
                     "cost":120
                 },
                 {
                     "name":"choco",
-                    "value":25,
+                    "value":55,
                     "color":"chocolate",
                     "cost":150
                 },
                 {
                     "name":"caramel",
-                    "value":30,
+                    "value":60,
                     "color":"orange",
                     "cost":200
                 }
@@ -61,31 +61,31 @@
                 },
                 {
                     "name":"sprinkles",
-                    "value":5,
+                    "value":15,
                     "color":"coral",
                     "cost":15
                 },
                   {
                     "name":"flake",
-                    "value":10,
+                    "value":25,
                     "color":"chocolate",
                     "cost":30
                 },
                 {
                     "name":"jellies",
-                    "value":20,
+                    "value":35,
                     "color":"coral",
                     "cost":60
                 },
                 {
                     "name":"pinkdust",
-                    "value":25,
+                    "value":45,
                     "color":"coral",
                     "cost":120
                 },
                 {
                     "name":"bluedust",
-                    "value":30,
+                    "value":60,
                     "color":"blue",
                     "cost":150
                 }
@@ -99,31 +99,31 @@
                 },
                 {
                     "name":"vanilla",
-                    "value":5,
+                    "value":10,
                     "color":"white",
                     "cost":0
                 },
                   {
                     "name":"chocolate",
-                    "value":20,
+                    "value":30,
                     "color":"chocolate",
                     "cost":50
                 },
                 {
                     "name":"strawberry",
-                    "value":30,
+                    "value":45,
                     "color":"coral",
                     "cost":100
                 },
                 {
                     "name":"bubblegum",
-                    "value":50,
+                    "value":65,
                     "color":"blue",
                     "cost":150
                 },
                 {
                     "name":"mint",
-                    "value":90,
+                    "value":110,
                     "color":"green",
                     "cost":300
                 }
@@ -143,25 +143,25 @@
                 },
                   {
                     "name":"pok",
-                    "value":55,
+                    "value":75,
                     "color":"red",
                     "cost":105
                 },
                 {
                     "name":"mrsalt",
-                    "value":60,
+                    "value":85,
                     "color":"chocolate",
                     "cost":120
                 },
                 {
                     "name":"canta",
-                    "value":65,
+                    "value":95,
                     "color":"orange",
                     "cost":140
                 },
                 {
                     "name":"milkshake",
-                    "value":85,
+                    "value":125,
                     "color":"purple",
                     "cost":200
                 }

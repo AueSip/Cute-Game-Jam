@@ -165,10 +165,7 @@ public class S_Interact : MonoBehaviour
                 objectHeld = obj;
                 print("GRABBED THIS OBJ");
                 Overlaps.Remove(sc);
-                 if (Placements.Count > 0)
-                 {
-                Placements[Placements.Count-1].PlacedIceCream(objectHeld.gameObject);
-                 }
+                 
                  
             } 
             itemHeld = true;

@@ -14,6 +14,7 @@ public class S_IceCreamGenerator : MonoBehaviour
     List<string> topping_names = new() { "none" };
     List<string> beverage_names = new() { "none" };
 
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {   
@@ -22,10 +23,11 @@ public class S_IceCreamGenerator : MonoBehaviour
     }
 
     public void Init(GameManager gm)
-    {   
+    {       
         gameManager = gm;
         jsonReader = GameObject.Find("GameManager").GetComponent<JSONReader>();
         unlockReader = GameObject.Find("GameManager").GetComponent<MachineUnlockReader>();
+      
         GetUnlocks();
         
         ReturnIceCream();
@@ -39,14 +41,15 @@ public class S_IceCreamGenerator : MonoBehaviour
     }
 
     public void GetUnlocks()
-    {   
+    {       
+        int tempXPRead = gameManager.GetExperience();
         cone_names.Clear();
         sauce_names.Clear();
         flavor_names.Clear();
         topping_names.Clear();
         beverage_names.Clear();
         //Returns array of unlocks, add a check later for level
-        int tempXPRead = gameManager.GetExperience();
+        
 
         if (tempXPRead >= 0)
         {

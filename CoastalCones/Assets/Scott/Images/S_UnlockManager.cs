@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 
@@ -11,6 +12,8 @@ public class S_UnlockManager : MonoBehaviour
      public List<Button> level2;
       public List<Button> level3;
       public List<Button> level4;
+
+      public Button start;
 
     public List<Button> level5;
     
@@ -31,6 +34,7 @@ public class S_UnlockManager : MonoBehaviour
         gameManager = gm;
         Cursor.lockState = CursorLockMode.None;
         int tempXPRead = gameManager.GetExperience();
+        start.interactable = true;
         if (tempXPRead >= 1000)
         {
             foreach (Button b in level1)
